@@ -12,7 +12,9 @@ public class Person {
 
     protected String name ;
     protected int id ;
-    protected String date ;
+    protected String d_date ;
+    protected String m_date;
+    protected String y_date;
     protected String gender ;
     protected String email ;
     protected String password ;
@@ -24,11 +26,13 @@ public class Person {
 
 
 
-    public Person(ArrayList <String> posts_comments_likes, String name, int id, String date, String gender, String email, String password, ArrayList <Integer> user_friends) {
+    public Person(ArrayList <String> posts_comments_likes, String name, int id, String d_date,String m_date,String y_date, String gender, String email, String password, ArrayList <Integer> user_friends) {
         this.posts_comments_likes = posts_comments_likes;
         this.name = name;
         this.id = id;
-        this.date = date;
+        this.d_date = d_date;
+        this.m_date=m_date;
+        this.y_date=y_date;
         this.gender = gender;
         this.email = email;
         this.password = password;
@@ -44,8 +48,12 @@ public class Person {
     }
 
     public void setDate(String date) {
-        this.date = date;
+        this.d_date = d_date;
     }
+
+    public void setM_date(String m_date) {this.m_date = m_date;}
+
+    public void setY_date(String y_date) {this.y_date = y_date;}
 
     public void setGender(String gender) {
         this.gender = gender;
@@ -71,9 +79,11 @@ public class Person {
         return id;
     }
 
-    public String getDate() {
-        return date;
-    }
+    public String getD_date() {return d_date;}
+
+    public String getM_date() {return m_date;}
+
+    public String getY_date() {return y_date;}
 
     public String getGender() {
         return gender;

@@ -12,15 +12,18 @@ public class HelloApplication extends Application {
     public void start(Stage stages) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 700, 500);
-
+        scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         stage=new Stage();
         stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
-        scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
     }
 
     public static void main(String[] args) {
         launch();
+        Persons.run();
+
+
+
     }
 }

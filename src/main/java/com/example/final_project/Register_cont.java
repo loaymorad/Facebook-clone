@@ -1,7 +1,7 @@
 package com.example.final_project;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,12 +12,34 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.stream.IntStream;
 
-
+import static com.example.final_project.Persons.Online;
 
 
 public class Register_cont implements Initializable  {
 
+
+
+
+
     public void back_to_login() throws IOException {
+//        Online =Persons.persons.getFirst();
+        Persons.run();
+        if (Persons.Online != null) {
+            Online.name=f_username.getText();
+            Online.email=f_email.getText();
+            Online.password=f_password.getText();
+            Online.d_date=combobox_day.getValue();
+            Online.m_date=combobox_month.getValue();
+            Online.y_date=combobox_year.getValue();
+            Persons.persons.add(Online);
+            System.out.println(Online.name);
+
+        } else {
+
+            System.out.println("Online is null");
+        }
+
+//        System.out.println("this is my email "+Online.email);
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
         Scene scene = new Scene(root);
@@ -25,7 +47,10 @@ public class Register_cont implements Initializable  {
         HelloApplication.stage.setScene(scene);
         HelloApplication.stage.show();
 
+
+
     }
+
 
 
 
@@ -42,6 +67,22 @@ public class Register_cont implements Initializable  {
     @FXML
     private ComboBox<String> combobox_year;
 
+    @FXML
+    private TextField f_email;
+
+    @FXML
+    private RadioButton f_female;
+
+    @FXML
+    private RadioButton f_male;
+
+    @FXML
+    private PasswordField f_password;
+
+    @FXML
+    private TextField f_username;
+    @FXML
+    private ToggleGroup f_genger;
 
 
 
@@ -65,9 +106,8 @@ public class Register_cont implements Initializable  {
         combobox_year.getItems().addAll(items3);
 
 
-
-
-
-
     }
+
+
+
 }
