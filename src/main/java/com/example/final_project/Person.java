@@ -10,14 +10,14 @@ import java.util.ArrayList;
 public class Person {
 
 
-    protected String name ;
+    protected String name =new String() ;
     protected int id ;
-    protected String d_date ;
-    protected String m_date;
-    protected String y_date;
-    protected String gender ;
-    protected String email ;
-    protected String password ;
+    protected String d_date=new String() ;
+    protected String m_date=new String();
+    protected String y_date=new String();
+    protected String gender=new String() ;
+    protected String email =new String();
+    protected String password =new String();
 
     // Here its all posts and all its replies  for same person
     protected ArrayList <String> posts_comments_likes = new ArrayList <> ();
@@ -38,6 +38,19 @@ public class Person {
         this.password = password;
         this.user_friends=user_friends;
     }
+    public Person(Person p1) {
+        this.posts_comments_likes = p1.posts_comments_likes;
+        this.name = p1.name;
+        this.id = p1.id;
+        this.d_date = p1.d_date;
+        this.m_date=p1.m_date;
+        this.y_date=p1.y_date;
+        this.gender = p1.gender;
+        this.email = p1.email;
+        this.password = p1.password;
+        this.user_friends=p1.user_friends;
+    }
+
 
     public void setName(String name) {
         this.name = name;

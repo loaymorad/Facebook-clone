@@ -25,7 +25,7 @@ public class Persons {
                         "1.2|like:5|security:public{I like coffee",
                         "1.2.1|like:2{and me !"
 
-                )), "ahmed Ali", 1 , "12", "Novamber" , "2004","male" ,"Mohamed_Ali@gmail.com" , "12345678",new ArrayList<>(List.of(1,2,3)));
+                )), "ahmed Ali", 1 , "12", "Novamber" , "2004","male" ,"samy_Ali@gmail.com" , "12345678",new ArrayList<>(List.of(1,2,3)));
 
         persons.add(p);
 
@@ -37,7 +37,7 @@ public class Persons {
                         "1.2|like:5|security:public{I like coffee",
                         "1.2.1|like:2{and me !"
 
-                )), "Mohamed Ali", 1 , "12", "jane" , "2004","male" ,"Mohamed_Ali@gmail.com" , "12345678",new ArrayList<>(List.of(1,2,3)));
+                )), "Mohamed Ali", 2 , "12", "jane" , "2004","male" ,"Mohamed_Ali@gmail.com" , "12345678",new ArrayList<>(List.of(1,2,3)));
 
         persons.add(p);
 
@@ -50,13 +50,15 @@ public class Persons {
                         "1.2|like:5|security:public{I like coffee",
                         "1.2.1|like:2{and me !"
 
-                )), "samir Ali", 1 , "12", "jane" , "2004","male" ,"Mohamed_Ali@gmail.com" , "12345678",new ArrayList<>(List.of(1,2,3)));
+                )), "samir Ali", 3 , "12", "jane" , "2004","male" ,"ahmed_Ali@gmail.com" , "12345678",new ArrayList<>(List.of(1,2,3)));
 
         persons.add(p);
 
         //---- Fetch actual user data
+        Online=new Person(persons.get(0));
 
-        Online = persons.getFirst();
+//
+
 
 
     }
