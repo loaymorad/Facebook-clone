@@ -23,7 +23,7 @@ public class Person {
     protected ArrayList <Integer> restricted_User_friends =new ArrayList<>();
 
 
-
+    public Person () {}
 
     public Person(ArrayList <String> posts_comments, String name, int id, String date, String gender, String email, String password, ArrayList <Integer> user_friends,  ArrayList <Integer> restricted_User_friends) {
         this.posts_comments = posts_comments;
