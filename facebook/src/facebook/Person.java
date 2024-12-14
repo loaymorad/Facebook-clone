@@ -20,11 +20,12 @@ public class Person {
     // Here its all posts and all its replies  for same person
     protected ArrayList <String> posts_comments = new ArrayList <> ();
     protected ArrayList <Integer> user_friends =new ArrayList<>();
+    protected ArrayList <Integer> restricted_User_friends =new ArrayList<>();
 
 
 
 
-    public Person(ArrayList <String> posts_comments, String name, int id, String date, String gender, String email, String password, ArrayList <Integer> user_friends) {
+    public Person(ArrayList <String> posts_comments, String name, int id, String date, String gender, String email, String password, ArrayList <Integer> user_friends,  ArrayList <Integer> restricted_User_friends) {
         this.posts_comments = posts_comments;
         this.name = name;
         this.id = id;
@@ -33,6 +34,8 @@ public class Person {
         this.email = email;
         this.password = password;
         this.user_friends=user_friends;
+        this.restricted_User_friends=restricted_User_friends;
+
     }
 
     public void setName(String name) {
