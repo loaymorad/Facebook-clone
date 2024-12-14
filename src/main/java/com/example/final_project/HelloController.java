@@ -33,6 +33,7 @@ public class HelloController {
 
     @FXML
     private BorderPane login_form;
+    protected Person login=new Person();
 
     public void loginaccount() throws IOException {
         Alert alert;
@@ -45,19 +46,20 @@ public class HelloController {
                 alert.setContentText("Please fill all blank fields");
                 alert.showAndWait();
             } else {
-                Online.email = L_email.getText();
-                Online.password = L_password.getText();
+                login.email = L_email.getText();
+                login.password = L_password.getText();
                 boolean Exist = false;
 
                 for (int i = 0; i < persons.size(); i++) {
                     // Check if email and password match for the current person
-                    if (Online.email.equals(persons.get(i).email) && Online.password.equals(persons.get(i).password)) {
+                    if (login.email.equals(persons.get(i).email) && login.password.equals(persons.get(i).password)) {
                         alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Information message");
                         alert.setHeaderText(null);
                         alert.setContentText("Successfully logged in");
                         alert.showAndWait();
                        Exist = true;
+                       Online=persons.size()-1;
                         break; // Exit the loop once login is successful
                     }
                 }
@@ -97,6 +99,14 @@ public class HelloController {
         HelloApplication.stage.setTitle("register");
         HelloApplication.stage.setScene(scene);
         HelloApplication.stage.show();
+        for (int i = 0; i < persons.size(); i++) {
+            System.out.println(Persons.persons.get(i).email);
+            System.out.println(persons.get(i).password);
+            System.out.println(persons.get(i).id);
+            System.out.println(persons.get(i).gender);
+            System.out.println(persons.get(i).m_date+"/"+persons.get(i).d_date+"/"+persons.get(i).y_date);
+
+        }
 
 
 

@@ -11,7 +11,8 @@ public class Persons {
     static ArrayList <Person> persons = new ArrayList <>() ;
 
     // Actual user
-    public static Person Online;
+    public static int Online;
+
     //run this method for test
     public static void run (){
 
@@ -55,7 +56,7 @@ public class Persons {
         persons.add(p);
 
         //---- Fetch actual user data
-        Online=new Person(persons.get(0));
+//        Online=new Person(persons.get(0));
 
 //
 

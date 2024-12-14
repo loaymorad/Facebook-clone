@@ -53,7 +53,7 @@
             <FontAwesomeIcon fill="#214276" iconName="USER" layoutX="12.0" layoutY="128.0" size="2em" text="" />
             <FontAwesomeIcon fill="#214276" iconName="ENVELOPE" layoutX="13.0" layoutY="162.0" size="1.5em" />
             <FontAwesomeIcon fill="#214276" iconName="LOCK" layoutX="14.0" layoutY="205.0" size="2em" />
-            <Button layoutX="103.0" layoutY="402.0" mnemonicParsing="false" onAction="#back_to_login" prefHeight="26.0" prefWidth="124.0" stylesheets="@Style.css" text="Sign UP" textFill="WHITE">
+            <Button fx:id="sign_up_btn" layoutX="103.0" layoutY="402.0" mnemonicParsing="false" onAction="#back_to_login" prefHeight="26.0" prefWidth="124.0" stylesheets="@Style.css" text="Sign UP" textFill="WHITE">
                <styleClass>
                   <String fx:value="other-form" />
                   <String fx:value="btn" />

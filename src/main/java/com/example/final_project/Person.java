@@ -10,18 +10,20 @@ import java.util.ArrayList;
 public class Person {
 
 
-    protected String name =new String() ;
+    protected String name  ;
     protected int id ;
-    protected String d_date=new String() ;
-    protected String m_date=new String();
-    protected String y_date=new String();
-    protected String gender=new String() ;
-    protected String email =new String();
-    protected String password =new String();
+    protected String d_date;
+    protected String m_date;
+    protected String y_date;
+    protected String gender ;
+    protected String email ;
+    protected String password ;
 
     // Here its all posts and all its replies  for same person
     protected ArrayList <String> posts_comments_likes = new ArrayList <> ();
     protected ArrayList <Integer> user_friends =new ArrayList<>();
+    public Person(){}
+
 
 
 
