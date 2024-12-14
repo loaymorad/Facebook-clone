@@ -12,7 +12,7 @@ public class Persons {
     public static HashMap<Integer,Person> getPerson;
 
     // Actual user
-    public static Person Online;
+    public static int Online;
     //run this method for test
     public static void run (){
 
