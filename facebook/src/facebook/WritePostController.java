@@ -68,7 +68,7 @@ public void initialize() {
 
 
 public void addFriends (){
-    for (int id_friend : Persons.Online.user_friends){
+    for (int id_friend : Persons.persons.get(Persons.Online).user_friends){
     
         for (Person p  : Persons.persons )
         {
@@ -93,7 +93,7 @@ public void addOtherPeoples ()  {
     for (Person p : Persons.persons){
      flag = true; 
     
-        for (int id : Persons.Online.user_friends ){
+        for (int id : Persons.persons.get(Persons.Online).user_friends ){
         
             if (p.id == id){
             
@@ -253,7 +253,7 @@ private String getTextAfterAt(String text, int caretPosition) {
         int maxId = 0 ; 
         int numOfDot  ;
         boolean flag ; 
-        for (String string : Persons.Online.posts_comments){
+        for (String string : Persons.persons.get(Persons.Online).posts_comments){
             numOfDot = 0 ; 
             flag = true ; 
             String sub = string.substring(0,string.indexOf("|")+1);
@@ -290,8 +290,9 @@ private String getTextAfterAt(String text, int caretPosition) {
         else sec  = "private" ; 
 
 
-        String final_string = Persons.Online.id +"."+maxId+"|like:0|"+sec+"{"+textArea.getText();
-        Persons.Online.posts_comments.add(final_string);
+        String final_string =maxId+"|like:0|"+sec+"{"+textArea.getText();
+       
+        Persons.persons.get(Persons.Online).posts_comments.add(final_string);
         all_posts () ;
         
    
