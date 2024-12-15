@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
@@ -28,11 +29,11 @@
       <AnchorPane prefHeight="500.0" prefWidth="350.0" styleClass="white-form" stylesheets="@Style.css" BorderPane.alignment="CENTER">
          <children>
             <FontAwesomeIcon fill="#214276" iconName="USERS" layoutX="137.0" layoutY="97.0" size="5em" />
-            <TextField fx:id="L_email" layoutX="101.0" layoutY="211.0" promptText="Email" style="-fx-background-color: transport; -fx-border-color: #214276; -fx-border-width: 0px 0px 2px 0px;" />
-            <PasswordField fx:id="L_password" layoutX="101.0" layoutY="269.0" promptText="Password" style="-fx-background-color: transport; -fx-border-color: #214276; -fx-border-width: 0px 0px 2px 0px;" />
-            <FontAwesomeIcon fill="#214276" iconName="USER" layoutX="78.0" layoutY="240.0" size="2em" />
-            <FontAwesomeIcon fill="#214276" iconName="LOCK" layoutX="80.0" layoutY="299.0" size="2em" />
-            <Button fx:id="login_but" layoutX="88.0" layoutY="336.0" mnemonicParsing="false" onAction="#loginaccount" prefHeight="41.0" prefWidth="162.0" styleClass="other-form" stylesheets="@Style.css" text="Login" textFill="WHITE" />
+            <TextField fx:id="L_email" layoutX="111.0" layoutY="211.0" promptText="Email" style="-fx-background-color: transport; -fx-border-color: #214276; -fx-border-width: 0px 0px 2px 0px;" />
+            <PasswordField fx:id="L_password" layoutX="111.0" layoutY="260.0" onKeyTyped="#password_field" promptText="Password" style="-fx-background-color: transport; -fx-border-color: #214276; -fx-border-width: 0px 0px 2px 0px;" />
+            <FontAwesomeIcon fill="#214276" iconName="USER" layoutX="88.0" layoutY="240.0" size="2em" />
+            <FontAwesomeIcon fill="#214276" iconName="LOCK" layoutX="90.0" layoutY="290.0" size="2em" />
+            <Button fx:id="login_but" layoutX="96.0" layoutY="336.0" mnemonicParsing="false" onAction="#loginaccount" prefHeight="41.0" prefWidth="162.0" styleClass="other-form" stylesheets="@Style.css" text="Login" textFill="WHITE" />
             <Label layoutX="92.0" layoutY="116.0" text="User Login" textFill="#214276">
                <font>
                   <Font size="33.0" />
@@ -40,6 +41,8 @@
             </Label>
             <FontAwesomeIcon fill="#214276" iconName="CLOSE" layoutX="316.0" layoutY="31.0" size="2em" />
             <Hyperlink layoutX="105.0" layoutY="438.0" text="Forgot your password?" textFill="#214276" />
+            <Label fx:id="shownpassword" layoutX="111.0" layoutY="286.0" text="shown password" />
+            <ToggleButton fx:id="pass_btn" layoutX="273.0" layoutY="262.0" mnemonicParsing="false" onAction="#show" styleClass="other-form" stylesheets="@Style.css" text="Show" textFill="WHITE" />
          </children>
       </AnchorPane>
    </right>

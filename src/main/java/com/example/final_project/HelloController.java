@@ -1,24 +1,27 @@
 package com.example.final_project;
 
 //import com.dlsc.formsfx.model.structure.PasswordField;
+import javafx.beans.binding.Bindings;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 
 import static com.example.final_project.Persons.Online;
 import static com.example.final_project.Persons.persons;
 
-public class HelloController {
+public class HelloController implements Initializable {
     @FXML
     private Button create_but;
 
@@ -33,6 +36,39 @@ public class HelloController {
 
     @FXML
     private BorderPane login_form;
+
+    @FXML
+    private ToggleButton pass_btn;
+
+    @FXML
+    private Label shownpassword;
+    @FXML
+    void password_field(KeyEvent event) {
+        shownpassword.textProperty().bind(Bindings.concat(L_password.getText()));
+
+    }
+
+    @FXML
+    void show(ActionEvent event) {
+        if(pass_btn.isSelected()){
+            shownpassword.setVisible(true);
+            shownpassword.textProperty().bind(Bindings.concat(L_password.getText()));
+            pass_btn.setText("Hide");
+
+        }else {
+            shownpassword.setVisible(false);
+            pass_btn.setText("Show");
+        }
+
+
+    }
+    @Override
+
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        shownpassword.setVisible(false);
+    }
+
+
     protected Person login=new Person();
 
     public void loginaccount() throws IOException {
@@ -104,7 +140,7 @@ public class HelloController {
             System.out.println(persons.get(i).password);
             System.out.println(persons.get(i).id);
             System.out.println(persons.get(i).gender);
-            System.out.println(persons.get(i).m_date+"/"+persons.get(i).d_date+"/"+persons.get(i).y_date);
+            System.out.println(persons.get(i).date);
 
         }
 

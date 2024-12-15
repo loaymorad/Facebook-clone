@@ -8,6 +8,7 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -49,7 +50,7 @@
             </RadioButton>
             <RadioButton fx:id="f_male" layoutX="99.0" layoutY="341.0" mnemonicParsing="false" text="Male" toggleGroup="$f_genger" />
             <TextField fx:id="f_email" layoutX="35.0" layoutY="135.0" prefHeight="26.0" prefWidth="296.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #214276; -fx-border-width: 0px 0px 2px 0px;" />
-            <PasswordField fx:id="f_password" layoutX="35.0" layoutY="175.0" prefHeight="26.0" prefWidth="298.0" promptText="New password" style="-fx-background-color: transparent; -fx-border-color: #214276; -fx-border-width: 0px 0px 2px 0px;" />
+            <PasswordField fx:id="f_password" layoutX="35.0" layoutY="175.0" onKeyTyped="#password_field1" prefHeight="26.0" prefWidth="298.0" promptText="New password" style="-fx-background-color: transparent; -fx-border-color: #214276; -fx-border-width: 0px 0px 2px 0px;" />
             <FontAwesomeIcon fill="#214276" iconName="USER" layoutX="12.0" layoutY="128.0" size="2em" text="" />
             <FontAwesomeIcon fill="#214276" iconName="ENVELOPE" layoutX="13.0" layoutY="162.0" size="1.5em" />
             <FontAwesomeIcon fill="#214276" iconName="LOCK" layoutX="14.0" layoutY="205.0" size="2em" />
@@ -59,6 +60,8 @@
                   <String fx:value="btn" />
                </styleClass>
             </Button>
+            <ToggleButton fx:id="btn_show" layoutX="288.0" layoutY="209.0" mnemonicParsing="false" onAction="#show_password" styleClass="other-form" stylesheets="@Style.css" text="Show" textFill="WHITE" />
+            <Label fx:id="shown_pass" layoutX="34.0" layoutY="202.0" text="shown password" />
          </children>
       </AnchorPane>
    </right>

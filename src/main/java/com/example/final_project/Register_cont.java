@@ -1,4 +1,5 @@
 package com.example.final_project;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -6,11 +7,10 @@ import javafx.scene.control.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.stream.IntStream;
@@ -51,15 +51,35 @@ public class Register_cont implements Initializable  {
     private TextField f_username;
     @FXML
     private ToggleGroup f_genger;
+    @FXML
+    private Label shown_pass;
+
+    @FXML
+    private ToggleButton btn_show;
+    @FXML
+    void password_field1(KeyEvent event) {
+        shown_pass.textProperty().bind(Bindings.concat(f_password.getText()));
+
+
+    }
+    @FXML
+    void show_password(ActionEvent event) {
+        if(btn_show.isSelected()){
+            shown_pass.setVisible(true);
+            shown_pass.textProperty().bind(Bindings.concat(f_password.getText()));
+            btn_show.setText("Hide");
+
+        }else {
+            shown_pass.setVisible(false);
+            btn_show.setText("Show");
+        }
+
+
+    }
+
+
+
     protected Person register=new Person();
-
-
-
-
-
-
-
-
 
 
 
@@ -67,7 +87,7 @@ public class Register_cont implements Initializable  {
         Alert alert;
 
         try {
-            if (f_email.getText().isEmpty()||f_username.getText().isEmpty()||f_password.getText().isEmpty()||combobox_year.getValue().isEmpty()||combobox_month.getValue().isEmpty()||combobox_day.getValue().isEmpty()){
+            if (f_email.getText().isEmpty()||f_username.getText().isEmpty()||f_password.getText().isEmpty()||combobox_year.getValue()==null||combobox_month.getValue()==null||combobox_day.getValue()==null||f_genger.getSelectedToggle()==null){
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error message");
                 alert.setHeaderText(null);
@@ -77,10 +97,7 @@ public class Register_cont implements Initializable  {
                 register.email=f_email.getText();
                 register.name=f_username.getText();
                 register.password=f_password.getText();
-                register.d_date=combobox_day.getValue();
-                register.m_date=combobox_month.getValue();
-                register.y_date=combobox_year.getValue();
-
+                register.date =combobox_day.getValue()+"/"+combobox_month.getValue()+"/"+combobox_year.getValue();
 
                 if (f_male.isSelected()) {
                     register.gender = "male";
@@ -116,6 +133,11 @@ public class Register_cont implements Initializable  {
                     alert.setHeaderText(null);
                     alert.setContentText("Successfully Reguster");
                     alert.showAndWait();
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
+                    Scene scene = new Scene(root);
+                    HelloApplication.stage.setTitle("Login");
+                    HelloApplication.stage.setScene(scene);
+                    HelloApplication.stage.show();
 
                 }
 
@@ -130,11 +152,7 @@ public class Register_cont implements Initializable  {
 
 
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
-        Scene scene = new Scene(root);
-        HelloApplication.stage.setTitle("Login");
-        HelloApplication.stage.setScene(scene);
-        HelloApplication.stage.show();
+
 
 
 
@@ -157,6 +175,7 @@ public class Register_cont implements Initializable  {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+       shown_pass.setVisible(false);
 
 
 
