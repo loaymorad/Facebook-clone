@@ -251,40 +251,25 @@ private String getTextAfterAt(String text, int caretPosition) {
    
    public void send () {
         int maxId = 0 ; 
-        int numOfDot  ;
-        boolean flag ; 
-        for (String string : Persons.persons.get(Persons.Online).posts_comments){
-            numOfDot = 0 ; 
-            flag = true ; 
-            String sub = string.substring(0,string.indexOf("|")+1);
-            for (int i = 0 ; i <sub.length() ; i ++ ){
-                
-                if (sub.charAt(i) =='.'){
-                
-                    numOfDot++;
-                    
-                    if (numOfDot > 1 ) {
-                    flag = false ; 
-                    break; 
-                    
-                    }
+        String sub;
+        int sub_int; 
+        int exist ; 
+        if (Persons.persons.get(Persons.Online).posts_comments.size()!=0)
             
-                }
-            
-            }
-            
-            if (flag){
-                
-            int sub_int = Integer.parseInt(sub.substring(sub.indexOf(".")+1, sub.indexOf("|")));
+        {
+        
+         for (String string : Persons.persons.get(Persons.Online).posts_comments){
+            sub = string.substring(0, string.indexOf('|'));
+            if (sub.indexOf('.')!=-1){continue; }// to check it is post not comment or ather
+            sub_int = Integer.parseInt(sub);
             if ( sub_int>maxId){ maxId = sub_int; }
             
-            }
-            
-                        
-        
         }
         
         maxId++; 
+        
+        }
+       
         String sec; 
         if ( privateToggle.getText().equals("OFF" )) sec = "public"; 
         else sec  = "private" ; 
@@ -293,6 +278,7 @@ private String getTextAfterAt(String text, int caretPosition) {
         String final_string =maxId+"|like:0|"+sec+"{"+textArea.getText();
        
         Persons.persons.get(Persons.Online).posts_comments.add(final_string);
+        
         all_posts () ;
         
    
