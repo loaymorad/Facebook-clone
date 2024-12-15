@@ -2,65 +2,92 @@
 package facebook;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
-import java.util.List;
 
 
 public class Persons {
     static ArrayList <Person> persons = new ArrayList <>() ;
-
+   
     // Actual user
     public static int Online;
     //run this method for test
-    public static void run (){
-
-
-
-
-        Person p = new Person (
-                new ArrayList<>(List.of(
-                        "1.1|like:12|private{WHO AM I @mona_2",
-                        "1.1.1|like:3{you are Hisham",
-                        "1.2|like:5|public{I like coffee",
-                        "1.2.1|like:2{and me !"
-
-                )), "Mohame Ali", 1 , "12/2/2000", "male" , "Mohamed_Ali@gmail.com", "12345678" , new ArrayList<>(List.of(1,2,3)),  new ArrayList<>(List.of(4)));
-
-        persons.add(p);
-        getPerson.put(p.id, p);
-
-
-        p = new Person (
-                new ArrayList<>(List.of(
-                        "1.1|like:12|private{WHO AM I @Mohamed_1",
-                        "2.1.1|like:3{you are Hisham",
-                        "2.2|like:5|security:public{I like coffee",
-                        "2.2.1|like:2{and me !"
-
-                )), "mona mohamed", 2 , "12/2/2000", "female" , "mona@gmail.com", "12345678",  new ArrayList<>(List.of(1,3,2)),  new ArrayList<>(List.of()));
-
-        persons.add(p);
-        getPerson.put(p.id, p);
-
-
-
-        p = new Person (
-                new ArrayList<>(List.of(
-                         "1.1|like:12|private{WHO AM I @mona_2",
-                        "1.1.1|like:3{you are Hisham",
-                        "1.2|like:5|public{I like coffee",
-                        "1.2.1|like:2{and me !"
-
-                )), "Ahmed yaser", 3 , "12/2/2000", "male" , "ahmed@gmail.com", "12345678",  new ArrayList<>(List.of(1,2,3)), new ArrayList<>(List.of()));
-
-        persons.add(p);
-        getPerson.put(p.id, p);
-
-        //---- Fetch actual user data
-
-   
-
+    public static void run () {
+        
+        
+       int counter_int = 0 ;
+       File file; 
+       Person p = new Person () ;
+       Scanner input ; 
+      
+       while ( new File (Facebook.pathOfFiles+counter_int).exists()){// path/src/+index
+       
+              
+       
+               try {
+                  file = new File (Facebook.pathOfFiles+counter_int+"/sign.txt");
+                  input= new Scanner (file);
+                  
+                  p.email = input.nextLine(); 
+                  p.password = input.nextLine () ; 
+                  p.name = input.nextLine () ; 
+                  p.gender = input.nextLine () ;
+                  p.date = input.nextLine () ;
+                 input.close () ; 
+                  
+                  
+                  file = new File (Facebook.pathOfFiles+counter_int+"/posts_comments.txt");
+                  input= new Scanner (file);
+                  
+                  while (input.hasNextLine()){
+                    p.posts_comments.add(input.nextLine());
+                  
+                  }
+                  
+                  input.close () ; 
+                  
+                  
+                  file = new File (Facebook.pathOfFiles+counter_int+"/restricted.txt");
+                  input= new Scanner (file);
+                  
+                  while (input.hasNextLine()){
+                   p.restricted_User_friends.add(Integer.parseInt(input.nextLine()));
+                  
+                  }
+                  
+                  input.close () ; 
+                  
+                  file = new File (Facebook.pathOfFiles+counter_int+"/unrestricted.txt");
+                  input= new Scanner (file);
+                  
+                  while (input.hasNextLine()){
+                   p.user_friends.add(Integer.parseInt(input.nextLine()));
+                  
+                  }
+                  
+                  input.close () ;
+                  
+                  
+                  
+                  
+               }
+               catch (IOException e){
+                   System.out.println(e.getMessage());
+               
+               }
+               
+        
+        
+        
+                Persons.persons.add(p);
+                counter_int++ ; 
+           
+       
+       }
+       
     }
 
 
