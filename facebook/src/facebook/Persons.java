@@ -60,7 +60,7 @@ public class Persons {
 
         //---- Fetch actual user data
 
-        Online = persons.get(0);
+   
 
     }
 
