@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Persons {
     static ArrayList <Person> persons = new ArrayList <>() ;
-    public static HashMap<Integer,Person> getPerson;
 
     // Actual user
     public static int Online;
