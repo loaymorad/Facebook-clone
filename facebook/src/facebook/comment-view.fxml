@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<AnchorPane fx:id="id_ap_main_comments" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.postcomment.CommentController">
+    <ScrollPane fx:id="id_sp_main" fitToWidth="true" AnchorPane.topAnchor="50.0" AnchorPane.leftAnchor="30.0"
+                AnchorPane.rightAnchor="30.0" AnchorPane.bottomAnchor="90.0">
+        <VBox fx:id="id_vbox_comments"/>
+    </ScrollPane>
+    <HBox AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" spacing="10.0">
+        <TextField fx:id="id_tf_comment" promptText="Write a comment..." HBox.hgrow="ALWAYS">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </TextField>
+        <Button fx:id="commentButton" mnemonicParsing="false" text="SEND">
+            <font>
+                <Font name="System Italic" size="14.0"/>
+            </font>
+        </Button>
+    </HBox>
+    <Label text="Comment" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="30.0">
+        <font>
+            <Font name="Cambria Math" size="30.0"/>
+        </font>
+    </Label>
+</AnchorPane>
+
