@@ -64,24 +64,10 @@ public void initialize() {
     });
 }
 
-
-
-
 public void addFriends (){
     for (int id_friend : Persons.persons.get(Persons.Online).user_friends){
-    
-        for (Person p  : Persons.persons )
-        {
         
-            if (p.id == id_friend){
-            
-                allNames.add(p.name+" ["+p.id+"]");
-                 
-                break; 
-            }
-        
-        }
-    
+         allNames.add(Persons.persons.get(id_friend).name+" ["+id_friend+"]");
     
     }
 
@@ -89,33 +75,32 @@ public void addFriends (){
 
 }
 public void addOtherPeoples ()  {
+    int counter = 0; 
     boolean flag;
     for (Person p : Persons.persons){
      flag = true; 
     
         for (int id : Persons.persons.get(Persons.Online).user_friends ){
         
-            if (p.id == id){
+            if (counter == id){
             
                 flag = false;
                 break;
             }
             
-           
+          
         }
     
             if (flag){
                 
-                    allNames.add(p.name+" ["+p.id+"]");
+                    allNames.add(p.name+" ["+counter+"]");
             
                 }
 
-
+             counter ++ ; 
 }
 
 }
-
-
 
 private void showMentionMenu() {
  
@@ -207,9 +192,7 @@ private String getTextAfterAt(String text, int caretPosition) {
          try {
              
             Parent root = FXMLLoader.load(getClass().getResource("post.fxml"));
-            
-            //privateToggle.setText(toggle2.getText());// for save
-            
+                        
             Facebook.scene = new Scene(root,Facebook.width , Facebook.height); 
             
             Facebook.stage.setScene(Facebook.scene );
@@ -253,7 +236,6 @@ private String getTextAfterAt(String text, int caretPosition) {
         int maxId = 0 ; 
         String sub;
         int sub_int; 
-        int exist ; 
         if (Persons.persons.get(Persons.Online).posts_comments.size()!=0)
             
         {
@@ -275,7 +257,7 @@ private String getTextAfterAt(String text, int caretPosition) {
         else sec  = "private" ; 
 
 
-        String final_string =maxId+"|like:0|"+sec+"{"+textArea.getText();
+        String final_string =maxId+"|0|"+sec+"{"+textArea.getText();
        
         Persons.persons.get(Persons.Online).posts_comments.add(final_string);
         
