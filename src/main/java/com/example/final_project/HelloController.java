@@ -87,7 +87,7 @@ public class HelloController implements Initializable {
                 boolean Exist = false;
 
                 for (int i = 0; i < persons.size(); i++) {
-                    // Check if email and password match for the current person
+
                     if (login.email.equals(persons.get(i).email) && login.password.equals(persons.get(i).password)) {
                         alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Information message");
@@ -96,11 +96,10 @@ public class HelloController implements Initializable {
                         alert.showAndWait();
                        Exist = true;
                        Online=persons.size()-1;
-                        break; // Exit the loop once login is successful
+                        break;
                     }
                 }
 
-                // If no match was found after checking all persons
                 if (!Exist) {
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error message");
@@ -126,9 +125,6 @@ public class HelloController implements Initializable {
 
 
 
-
-
-
     public void open() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("register.fxml")));
         Scene scene = new Scene(root);
@@ -141,11 +137,9 @@ public class HelloController implements Initializable {
             System.out.println(persons.get(i).id);
             System.out.println(persons.get(i).gender);
             System.out.println(persons.get(i).date);
+            System.out.println(Online);
 
         }
-
-
-
 
 
 

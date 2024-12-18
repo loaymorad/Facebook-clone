@@ -14,15 +14,12 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.stream.IntStream;
-
 import static com.example.final_project.Persons.Online;
 import static com.example.final_project.Persons.persons;
 
-
-
-
-
 public class Register_cont implements Initializable  {
+
+    public boolean new_user=false;
 
 
 
@@ -125,7 +122,7 @@ public class Register_cont implements Initializable  {
                     register.id=persons.size()+1;
                     persons.add(register);
                     Online=persons.size()-1;
-
+                    new_user=true;
 
 
                     alert = new Alert(Alert.AlertType.INFORMATION);
@@ -148,15 +145,14 @@ public class Register_cont implements Initializable  {
         }
 
 
-
-
-
-
-
-
-
-
-
+    }
+    @FXML
+    void have_an_acc(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
+        Scene scene = new Scene(root);
+        HelloApplication.stage.setTitle("Login");
+        HelloApplication.stage.setScene(scene);
+        HelloApplication.stage.show();
 
 
     }
@@ -178,8 +174,6 @@ public class Register_cont implements Initializable  {
        shown_pass.setVisible(false);
 
 
-
-
         String [] items = IntStream.rangeClosed(1, 31)
                 .mapToObj(Integer::toString)
                 .toArray(String[]::new);
@@ -188,7 +182,7 @@ public class Register_cont implements Initializable  {
                 "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
         combobox_month.getItems().addAll(item);
 
-        String [] items3 = IntStream.rangeClosed(1905, 2024)
+        String [] items3 = IntStream.rangeClosed(2024, 1905)
                 .mapToObj(Integer::toString)
                 .toArray(String[]::new);
         combobox_year.getItems().addAll(items3);

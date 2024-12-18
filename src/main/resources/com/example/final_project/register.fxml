@@ -24,7 +24,7 @@
                   <Font size="36.0" />
                </font>
             </Label>
-            <Button layoutX="89.0" layoutY="424.0" mnemonicParsing="false" onAction="#back_to_login" prefHeight="27.0" prefWidth="161.0" styleClass="create-btn" stylesheets="@Style.css" text="Already have an account" />
+            <Button fx:id="already_btn" layoutX="89.0" layoutY="424.0" mnemonicParsing="false" onAction="#have_an_acc" prefHeight="27.0" prefWidth="161.0" styleClass="create-btn" stylesheets="@Style.css" text="Already have an account" />
          </children>
       </AnchorPane>
    </left>
