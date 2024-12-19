@@ -1,5 +1,4 @@
 package com.example.postcomment;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -13,14 +12,15 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class CommentController implements Initializable {
+import static com.example.postcomment.Persons.Online;
 
+public class CommentController implements Initializable {
+private String postId = "2";
     private final ArrayList<String> strComments = new ArrayList<>();
     private ArrayList<Comment> comments =new ArrayList<>(){};
     @FXML private Button commentButton;
@@ -28,7 +28,7 @@ public class CommentController implements Initializable {
     @FXML private TextField id_tf_comment;
     @FXML private VBox id_vbox_comments;
     private String mentionedPerson="";
-    private static final String userName = "youssef";
+    private static final String userName = "x";
 
     private List<String> filterPeople(List<String> people, String query) {
         if (query.isEmpty()) {
@@ -108,7 +108,6 @@ public class CommentController implements Initializable {
         for (int i = 0 ;i<comment.getReplies().size();i++)
         {
             VBox vBox2 = new VBox();
-            //Reply x = ;
             displayReply(comment.getUserName(),comment.getReplies().get(i),vxAllComment);
             vxCommentReply.getChildren().add(vBox2);
         }
@@ -152,7 +151,6 @@ public class CommentController implements Initializable {
             replyDialog.setTitle("Reply");
             replyDialog.setHeaderText("Enter your Reply...");
             replyDialog.showAndWait().ifPresent(content->{
-               // Reply nestedReply = new Reply(userName,reply.getReplyId(), );
                 reply.addNestedReply(userName,content);
                 displayReply( reply.getUserName(),reply.getNestedReplies().getLast(), vxAllReply);
 
@@ -198,14 +196,17 @@ public class CommentController implements Initializable {
         String[] elements = strComments.split("\\|");
         Comment currentComment = null;
         Reply currentReply = null;
-        for (int i = 0; i < elements.length; i += 4) {
+        for (int i = 0; i < elements.length; i += 3) {
+
             String id = elements[i];
-            String userName = elements[i + 1];
-            String content = elements[i + 2];
-            int likes = Integer.parseInt(elements[i + 3]);
+            int likes = Integer.parseInt(elements[i + 1]);
+            String []user_cont =  elements[i + 2].split("\\{");
+            String userName = user_cont[0];
+            String content = user_cont[1];
+
             int depth = id.split("\\.").length; // Determine depth based on the number of '.' in id
             if (depth == 2) { // Top-level comment
-                currentComment = new Comment(userName,"7", content, likes);
+                currentComment = new Comment(userName,postId, content, likes);
                 comments.add(currentComment);
                 currentReply = null;
             } else if (depth == 3) { // Reply to comment
@@ -222,8 +223,7 @@ public class CommentController implements Initializable {
     }
 
     @Override public void initialize (URL url, ResourceBundle resourceBundle) throws RuntimeException {
-        strComments.add("14.0|Hisham|i like coffee|5|14.0.0|Ahmed|hi|0|14.0.1|loay|me too|0|14.1|loay|Basha el_balad|7|14.1.0|elza3im|Hello i am Here|5|14.1.0.0|joe|A7A|5|14.1.0.0.0|haha|a7a|10|");
-
+strComments.add("2.0|5|Hisham{i like coffee|2.0.0|0|Ahmed{hi| 2.0.1|0|loay{me too|2.1|7|loay{Basha el_balad|2.1.0|5|elza3im{Hello i am Here|2.1.0.0|5|joe{A7A| 2.1.0.1|10|haha{a7a|");
         for (String y : strComments) {
             parseComments(y);
         }
@@ -238,7 +238,7 @@ public class CommentController implements Initializable {
 
             String commentToSend = id_tf_comment.getText();
             if (!commentToSend.trim().isEmpty()) {
-                Comment comment = new Comment(userName, "123", commentToSend);
+                Comment comment = new Comment(userName, postId, commentToSend);
                 String mention = mention().replace("@","");
                 comment.setMention(mention);
                 VBox vxCommentReply = new VBox();
@@ -248,7 +248,6 @@ public class CommentController implements Initializable {
                 id_vbox_comments.getChildren().add(vxCommentReply);
                 id_tf_comment.clear();
             }
-           // ArrayList<String>saveComment =new ArrayList<>();
             String saveComment= "";
             for(Comment c:comments){
                 saveComment +=c.toString().replaceAll("[\\[\\]\n]", "");
