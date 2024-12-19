@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="scene" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1877F2;"  xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject.mutualFriendsController">
+    <children>
+        <Text fx:id="mutualFriends" fill="WHITE" layoutX="19.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mutual friends">
+            <font>
+                <Font name="System Bold" size="23.0" />
+            </font>
+        </Text>
+        <ScrollPane fx:id="scrollPane" layoutX="20.0" layoutY="80.0" prefHeight="234.0" prefWidth="446.0">
+            <content>
+                <VBox fx:id="friendsContainer" prefHeight="132.0" prefWidth="438.0" spacing="15.0" style="-fx-border-width: 7;">
+                    <padding>
+                        <Insets left="20.0" top="1.0" />
+                    </padding>
+                </VBox>
+            </content>
+        </ScrollPane>
+        <ImageView fx:id="returnn" fitHeight="28.0" fitWidth="28.0" layoutX="21.0" layoutY="363.0" onMouseClicked="#setReturnn">
+            <image>
+                <Image url="@left-arrow.png" />
+            </image>
+        </ImageView>
+        <Text fx:id="subTitle" fill="WHITE" layoutX="22.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mutual friends with qzx.21" />
+        <StackPane fx:id="centerText" layoutX="-2.0" layoutY="2.0" prefHeight="70.0" prefWidth="200.0" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane style="-fx-background-color: #1877F2;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject.SearchPageController">
+    <children>
+        <!-- Search bar with Facebook icon and search icon -->
+        <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0" prefHeight="50.0" style="-fx-background-color: white; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-color: lightGrey;"
+              AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" AnchorPane.rightAnchor="20.0">
+            <children>
+                <ImageView fx:id="facebookIcon" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@facebook.png" />
+                    </image>
+                </ImageView>
+                <TextField fx:id="searchField" promptText="Search" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-font-family: Arial;" HBox.hgrow="ALWAYS">
+                    <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </TextField>
+                <ImageView fx:id="searchIcon" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#searchPeople" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+                    <image>
+                        <Image url="@search.png" />
+                    </image>
+                </ImageView>
+            </children>
+            <padding>
+                <Insets left="10.0" />
+            </padding>
+        </HBox>
+
+        <!-- User info display -->
+        <VBox fx:id="NotFoundVbox" alignment="CENTER" spacing="10" style="-fx-background-color: #1877F2;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="90.0" AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="20.0" />
+
+        <ScrollPane fx:id="scrollingPane" style="-fx-background-radius: 10;" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="90.0" AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="20.0">
+            <content>
+                <!-- List of people (dynamic content) -->
+                <VBox fx:id="peopleList" spacing="15.0" style="-fx-background-radius: 8; -fx-border-radius: 8;">
+                    <!-- Dynamic content for people will go here -->
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

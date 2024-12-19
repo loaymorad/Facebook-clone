@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="login_form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject.LoginController">
+   <left>
+      <AnchorPane prefHeight="500.0" prefWidth="350.0" styleClass="other-form" stylesheets="@Style.css" BorderPane.alignment="CENTER">
+         <children>
+            <FontAwesomeIcon fill="WHITE" iconName="FACEBOOK" layoutX="137.0" layoutY="175.0" size="10em" />
+            <Button fx:id="create_but" layoutX="72.0" layoutY="442.0" mnemonicParsing="false" onAction="#open" prefHeight="27.0" prefWidth="206.0" styleClass="create-btn" stylesheets="@Style.css" text="Create new account" />
+            <Label layoutX="127.0" layoutY="405.0" text="Register Account" textFill="WHITE" />
+            <Label layoutX="60.0" layoutY="198.0" text="facebook" textFill="WHITE">
+               <font>
+                  <Font size="57.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="500.0" prefWidth="350.0" styleClass="white-form" stylesheets="@Style.css" BorderPane.alignment="CENTER">
+         <children>
+            <FontAwesomeIcon fill="#214276" iconName="USERS" layoutX="137.0" layoutY="97.0" size="5em" />
+            <TextField fx:id="L_email" layoutX="111.0" layoutY="211.0" promptText="Email" style="-fx-background-color: transport; -fx-border-color: #214276; -fx-border-width: 0px 0px 2px 0px;" />
+            <PasswordField fx:id="L_password" layoutX="111.0" layoutY="260.0" onKeyTyped="#password_field" promptText="Password" style="-fx-background-color: transport; -fx-border-color: #214276; -fx-border-width: 0px 0px 2px 0px;" />
+            <FontAwesomeIcon fill="#214276" iconName="USER" layoutX="88.0" layoutY="240.0" size="2em" />
+            <FontAwesomeIcon fill="#214276" iconName="LOCK" layoutX="90.0" layoutY="290.0" size="2em" />
+            <Button fx:id="login_but" layoutX="96.0" layoutY="336.0" mnemonicParsing="false" onAction="#loginaccount" prefHeight="41.0" prefWidth="162.0" styleClass="other-form" stylesheets="@Style.css" text="Login" textFill="WHITE" />
+            <Label layoutX="92.0" layoutY="116.0" text="User Login" textFill="#214276">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <FontAwesomeIcon fill="#214276" iconName="CLOSE" layoutX="316.0" layoutY="31.0" size="2em" />
+            <Hyperlink layoutX="105.0" layoutY="438.0" text="Forgot your password?" textFill="#214276" />
+            <Label fx:id="shownpassword" layoutX="111.0" layoutY="286.0" text="shown password" />
+            <ToggleButton fx:id="pass_btn" layoutX="273.0" layoutY="262.0" mnemonicParsing="false" onAction="#show" styleClass="other-form" text="Show" textFill="WHITE">
+               <stylesheets>
+                  <URL value="@Style.css" />
+               </stylesheets></ToggleButton>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

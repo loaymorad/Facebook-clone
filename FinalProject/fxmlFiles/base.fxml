@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+
+<BorderPane prefHeight="500" prefWidth="800" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject.MainController">
+    
+    <top>
+        <HBox alignment="CENTER" spacing="10" style="-fx-background-color: #4267B2; -fx-padding: 5 0;">
+            <Button onAction="#search" style="-fx-text-fill: white; -fx-font-size: 14; -fx-background-color: transparent; -fx-padding: 10px 20px;" text="🔍 Search" />
+            
+            <Button onAction="#all_posts" style="-fx-text-fill: white; -fx-font-size: 14; -fx-background-color: transparent; -fx-padding: 10px 20px;" text="All Posts" />
+            
+            <Button onAction="#friends_posts" style="-fx-text-fill: white; -fx-font-size: 14; -fx-background-color: transparent; -fx-padding: 10px 20px;" text="Friends Posts" />
+            
+            <Button onAction="#write_post" style="-fx-text-fill: white; -fx-font-size: 14; -fx-background-color: transparent; -fx-padding: 10px 20px;" text="Write Post" />
+            
+            <Button onAction="#chats" style="-fx-text-fill: white; -fx-font-size: 14; -fx-background-color: transparent; -fx-padding: 10px 20px;" text="Chats" />
+            
+            <Button onAction="#profile" style="-fx-text-fill: white; -fx-font-size: 14; -fx-background-color: transparent; -fx-padding: 10px 20px;" text="Profile" />
+        </HBox>
+    </top>
+    
+    <center>
+        <Region />
+    </center>
+</BorderPane>
