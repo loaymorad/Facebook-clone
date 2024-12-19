@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Comment {
     private static int countComment=0;
-    private int countReply; 
+    private int countReply;
     private  String userName;
     private  String commentId;
     private String content;
@@ -15,33 +15,29 @@ public class Comment {
     private List<String> userNameReact;
     private List<Reply> replies;
     public Comment(){}
-    public Comment(String userName,  String content,int noOfLike) {
-        this.userName = userName;
-        this.commentId = countComment+"" ;
-        this.content = content;
-        this.countReply =0 ; 
-        this.replies = new ArrayList<>();
-        this.userNameReact = new ArrayList<>();
-        this.numOfLike = noOfLike;
-        countComment++;
-    }
+//    public Comment(String userName,  String content,int noOfLike) {
+//        this.userName = userName;
+//        this.commentId = countComment+"" ;
+//        this.content = content;
+//        this.countReply =0 ;
+//        this.replies = new ArrayList<>();
+//        this.userNameReact = new ArrayList<>();
+//        this.numOfLike = noOfLike;
+//        countComment++;
+//    }
     public Comment(String userName, String postId, String content,int noOfLike) {
-        this.userName = userName;
-        this.commentId = postId ;
-        this.content = content;
-        this.countReply =0 ; 
-        this.replies = new ArrayList<>();
-        this.userNameReact = new ArrayList<>();
+        this( userName,  postId,  content);
         this.numOfLike = noOfLike;
     }
     public Comment(String userName, String postId, String content) {
         this.userName = userName;
-        this.commentId = postId ;
+        this.commentId = postId +"."+countComment ;
         this.content = content;
         this.numOfLike = 0;
         this.replies = new ArrayList<>();
         this.userNameReact = new ArrayList<>();
         this.countReply =0 ;
+        countComment++;
     }
 
     public String getMention() {
@@ -110,9 +106,9 @@ public class Comment {
     public String toString() {
         return
                 commentId +
-                "|"+userName+
-                "|" + content  +
                 "|" + numOfLike +
+                "|"+userName+
+                "{" + content  +
                 "|" + replies ;
     }
 }
