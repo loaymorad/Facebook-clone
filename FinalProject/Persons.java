@@ -38,12 +38,13 @@ public class Persons {
                   p.date = input.nextLine () ;
                  input.close () ; 
                   
-                  
+                 
                   file = new File (Facebook.pathOfFiles+counter_int+"/posts_comments.txt");
                   input= new Scanner (file);
                   
                   while (input.hasNextLine()){
-                    p.posts_comments.add(input.nextLine());
+
+                    p.posts_comments.add(input.nextLine().replace("457484123252454111521321125", "\n"));
                   
                   }
                   
@@ -54,7 +55,9 @@ public class Persons {
                   input= new Scanner (file);
                   
                   while (input.hasNextLine()){
-                   p.restricted_User_friends.add(Integer.parseInt(input.nextLine()));
+
+
+                   p.restricted_User_friends.add(Integer.valueOf(input.nextLine()));
                   
                   }
                   
@@ -64,8 +67,10 @@ public class Persons {
                   input= new Scanner (file);
                   
                   while (input.hasNextLine()){
-                   p.user_friends.add(Integer.parseInt(input.nextLine()));
-                  
+
+
+                   p.user_friends.add(Integer.valueOf(input.nextLine()));
+
                   }
                   
                   input.close () ;
@@ -87,10 +92,8 @@ public class Persons {
            
        
        }
-        System.out.println("----------------------------");
-       for (Person a: Persons.persons){
-           System.out.println(a.id);
-       }
+
+
 
 
 
