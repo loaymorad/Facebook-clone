@@ -101,13 +101,13 @@ public class Facebook extends Application{
     private void save_files () {
 
 
-        
+
         int counter = 0 ;
-        
+
         FileWriter myFile ;
 
         for (Person p : Persons.persons){
-            System.out.println("hi");
+
             try {
 
                 myFile = new FileWriter (pathOfFiles +counter + "/sign.txt");
@@ -116,30 +116,31 @@ public class Facebook extends Application{
                 myFile.write(p.name+'\n');
                 myFile.write(p.gender+'\n');
                 myFile.write(p.date);
-               
+
                 myFile.close();
 
 
-                int handle = 0; 
+                int handle = 0;
                 myFile = new FileWriter (pathOfFiles +counter + "/posts_comments.txt");
-                
+
                 for (String str : p.posts_comments){
+                    str =  str.replace("\n", "457484123252454111521321125");
                     if (handle == (p.posts_comments.size()-1))myFile.write(str);
                     else myFile.write(str+'\n');
-                    handle  ++; 
+                    handle  ++;
                 }
-                
+
                 myFile.close();
 
-                handle  = 0; 
+                handle  = 0;
 
                 myFile = new FileWriter (pathOfFiles +counter + "/restricted.txt");
-                 
-                for (int num : p.restricted_User_friends){
 
-                    if (handle == (p.restricted_User_friends.size()-1))myFile.write(num);
-                    else myFile.write(num+'\n');
-                    handle  ++; 
+                for (Integer num: p.restricted_User_friends){
+
+                    if (handle == (p.restricted_User_friends.size()-1))myFile.write(num.toString());
+                    else myFile.write(num.toString()+'\n');
+                    handle  ++;
                 }
 
                 myFile.close();
@@ -147,24 +148,28 @@ public class Facebook extends Application{
                 handle  = 0;
 
                 myFile = new FileWriter (pathOfFiles +counter + "/unrestricted.txt");
-                
-                for (int num : p.user_friends){
 
-                    if (handle == (p.user_friends.size()-1))myFile.write(num);
-                    else myFile.write(num+'\n');
-                    handle  ++; 
+                for (Integer num : p.user_friends){
+
+                    if (handle == (p.user_friends.size()-1))myFile.write(num.toString());
+                    else myFile.write(num.toString()+'\n');
+                    handle  ++;
                 }
 
                 myFile.close();
 
-                
+
             }catch (IOException e){
                 System.out.println(e.getMessage());}
 
             counter++;
-    
+
         }
-    
+
+
+
+    }
+
     
     
     }
